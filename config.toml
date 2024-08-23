@@ -1,6 +1,6 @@
-baseURL = "https://danysk.github.io/Template-Hugo-Reveal-Slides"
+baseURL = "https://danysk.github.io/slides-2024-acsos-reproducibility"
 languageCode = "en-us"
-title = "A Hugo theme for creating Reveal.js presentations"
+title = "Reproducible experiments or didn't happen"
 disableKinds = ["sitemap", "RSS"]
 theme = "reveal-hugo"
 publishDir = "build"

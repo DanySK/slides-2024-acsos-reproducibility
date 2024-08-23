@@ -1,8 +1,8 @@
 
 +++
 
-title = "Guide for writing markdown slides"
-description = "A Hugo theme for creating Reveal.js presentations"
+title = "Reproducible experiments or didn't happen"
+description = "The replicability crisis and recipes for self-organizing systems"
 outputs = ["Reveal"]
 aliases = [
     "/guide/"
@@ -10,6 +10,155 @@ aliases = [
 
 +++
 
+# PhD forum talk @ ACSOS 2024
+
+#### {{% today %}}
+## [Danilo Pianini](mailto:danilo.pianini@unibo.it)
+### Alma Mater Studiorum -- Università di Bologna
+
+---
+
+{{< slide background-image="hippo2.jpg" state="blur-animation-light" transition="fade-in fade-out" >}}
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<!-- white background -->
+<span style="background-color: white; border-radius: 0.2em;">
+source: https://www.earth.com/news/hippopotamus-population-hit-hard-by-habitat-destruction
+
+</span>
+
+---
+
+# Hippos (Hippopotamus amphibius) facts
+
+* {{% frag c="Big (second largest land animal after elephants)" %}}
+* {{% frag c="(Relatively) Fast (30km/h on land, 8km/h in water)" %}}
+* {{% frag c="Strong bite (13.8MPa, twice the strength of a lion bite)" %}}
+* {{% frag c="Aggressive and highly unpredictable" %}}
+* {{% frag c="Among the deadliest animals worldwide by human deaths" %}}
+
+---
+
+I'm now making a claim, and I want to see if you believe me
+
+{{% fragment %}}
+# An adult hippo's bite can crush in half an adult crocodile
+
+Please *raise your hand if you believe this claim*
+{{% /fragment %}}
+
+{{% fragment %}}
+![crocodile](crocodile80.jpg)
+
+Please raise your hand if you believe this claim *now*
+{{% /fragment %}}
+
+---
+
+![pic](pic.webp)
+
+---
+
+Let's do the same game
+
+{{% fragment %}}
+# It is possible to tame and ride a hippo
+
+Please *raise your hand if you believe this claim*
+{{% /fragment %}}
+
+{{% fragment %}}
+![riding](riding60.jpg)
+
+Please raise your hand if you believe this claim *now*
+{{% /fragment %}}
+
+{{% fragment %}}
+Would it be more convincing if I precisely explained how the hippo was tamed and ridden?
+{{% /fragment %}}
+
+{{% fragment %}}
+Would it be more convincing if multiple independent people applied the same procedure and obtained the same result?
+{{% /fragment %}}
+
+---
+
+# ~~Picture~~ Reproducible experiments, or didn't happen
+
+![experiment](experiment.webp)
+
+---
+
+![image](https://user-images.githubusercontent.com/1991673/236500955-b65de211-3b51-4adf-b0e5-6f248771e479.png)
+
+---
+
+## Replication crisis
+### aka replicability crisis or reproducibility crisis
+
+* ongoing *methodological crisis*
+* the results of many scientific studies are hard or impossible to *reproduce*.
+
+* empirical reproductions are essential for the the scientific method
+
+#### no reproducibility $\Rightarrow$ scientific credibility is undermined
+
+---
+
+## People working in computer science are lucky!
+#### (on average)
+
+* It's the only engineering discipline producing *mass-less* artifacts
+    * Much easier to *share*
+* Even if we work in highly unpredictable contexts, we can *control randomness* in many experiments
+    * Much easier to *reproduce*
+* We have support tools to *track changes*, *automate*, and *manage* complexity
+    * Much easier to *maintain*
+
+---
+
+## Three pillars
+
+### Availability
+
+Let others *access* your work
+
+### Reproducibility / Maintenance
+
+If it is an **experiment**, make sure others can *obtain the same results* of yours
+
+If it is a **tool** make sure your work is *sustainable* over time
+
+### Reusability
+
+Let others *build upon* your work
+
+---
+
+## Availability
+
+
+
+---
+
+
+### Specifically for data science and computer science
+
+* Make your artifacts *available*
+  * Share code as open source (**licensing**)
+  * Share code and data where people will find it (**GitHub**)
+  * Share code and data where it will be archived for the foreseeable future (**Zenodo**)
+* Make your artifacts *reproducible*
+  * It works on your PC? Ship your PC! (**containerization**)
+* Make your artifacts *maintainable*
+  * Be ready to accept contributions and work in team (**version control**)
+  * Always check that the software is working (**continuous integration**)
+* Make your artifacts *reusable*
+  * document them appropriately (**GitHub Pages**)
+
+---
+
+* Also please don't mess around with hippos
 
 # Short guide to Markdown slides
 
