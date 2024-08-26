@@ -62,7 +62,7 @@ Please raise your hand if you believe this claim *now*
 Let's do the same game
 
 {{% fragment %}}
-# It is possible to tame and ride a hippo
+# Humans can tame and ride hippos
 
 Please *raise your hand if you believe this claim*
 {{% /fragment %}}
@@ -117,460 +117,309 @@ Would it be more convincing if multiple independent people applied the same proc
 
 ---
 
-## Three pillars
+## Develop and share your tool or experiment, checklist
 
-### Availability
-
-Let others *access* your work
-
-### Reproducibility / Maintenance
-
-If it is an **experiment**, make sure others can *obtain the same results* of yours
-
-If it is a **tool** make sure your work is *sustainable* over time
-
-### Reusability
-
-Let others *build upon* your work
+1. Set up a *version control system*
+2. Prepare a code *repository*
+3. Set up a *build automation* system
+4. Make sure you can *control randomness*
+5. Work in isolation using *containers*
+6. Raise your confidence with *continuous integration* and *continuous delivery*
+7. Pick a good *license*
+9. *Document* your work
 
 ---
 
-## Availability
+# Version Control Systems
 
+1. Keeps track of changes
+2. Fosters collaboration
+3. Foundational tool for sharing through well-known source code hosting platforms
 
-
----
-
-
-### Specifically for data science and computer science
-
-* Make your artifacts *available*
-  * Share code as open source (**licensing**)
-  * Share code and data where people will find it (**GitHub**)
-  * Share code and data where it will be archived for the foreseeable future (**Zenodo**)
-* Make your artifacts *reproducible*
-  * It works on your PC? Ship your PC! (**containerization**)
-* Make your artifacts *maintainable*
-  * Be ready to accept contributions and work in team (**version control**)
-  * Always check that the software is working (**continuous integration**)
-* Make your artifacts *reusable*
-  * document them appropriately (**GitHub Pages**)
-
----
-
-* Also please don't mess around with hippos
-
-# Short guide to Markdown slides
-
----
-
-# Headers
-
-# H1
-## H2
-### H3
-#### H4
+{{% multicol %}}
+{{% col %}}
+## Dos
+* set it up early to support the construction of the artifact
+* `git` is a standard de-facto, use it
+* track only non-generated files $\Rightarrow$ set up and maintain a good `.gitignore`
+* take your time to understand how to *solve conflicts*
+* learn the basics using a terminal
+{{% /col %}}
+{{% col %}}
+## Don'ts
+* start using it when it is time to share the artifact
+* pick niche and/or declining tools (even if they are good -- `hg`, `svn`...)
+* paste commands / fiddle with UIs without understanding what you are doing
+* delete the repo and start over
+{{% /col %}}
+{{% col %}}
+## Advanced
+* Use it for the paper, too, if you write in $\LaTeX$
+* Agree on a branching strategy with your collaborators
+* Learn `rebase`, `bisection`, `cherry-pick`, and other advanced features
+{{% /col %}}
+{{% /multicol %}}
 
 ---
 
-# Text
+# Public code repositories
 
-normal text
+1. The place where others will search for your code
+    * Especially if it is a **tool** or a **library**
+2. Fosters collaboration
+3. Provide many useful ancillary services
+    * Issue tracking
+    * Continuous integration
+    * Documentation hosting
 
-`inline code`
-
-*italic*
-
-**bold**
-
-**_emphasized_**
-
-*__emphasized alternative__*
-
-~~strikethrough~~
-
-[link](http://www.google.com)
-
----
-
-# Lists and enums
-
-1. First ordered list item
-1. Another item
-    * Unordered sub-list.
-    * with two items
-        * another sublist
-            1. With a sub-enum
-            1. yay!
-1. Actual numbers don't matter, just that it's a number
-  1. Ordered sub-list
-1. And another item.
+{{% multicol %}}
+{{% col %}}
+## Dos
+* prefer cloud-hosted repositories to on-premise ones
+* if you can, use [GitHub](https://github.com) <i class="fa-brands fa-github"></i>
+* a reasonable niche alternative is [GitLab](https://gitlab.com) <i class="fa-brands fa-gitlab"></i>
+* prepare a good `README.md` file to guide users
+{{% /col %}}
+{{% col %}}
+## Don'ts
+* share only through your institutional website, unless you are forced to
+* upload archives instead of code, it's not a 1990s FTP server
+{{% /col %}}
+{{% col %}}
+## Advanced
+* use *pull requests* to contribute upstream or integrate changes if it is a long-lived project
+* investigate the *additional services*, e.g., bots that propose dependency updates
+{{% /col %}}
+{{% /multicol %}}
 
 ---
 
-# Inline images
+# Build automation
 
-![Alternative text](https://upload.wikimedia.org/wikipedia/commons/6/6c/Scavolino_innevata.jpg)
+1. Automatic fetch and download of software dependencies
+2. Automatic compilation and packaging
+3. Automatic testing
+4. Automatic execution of the experiments
 
----
+{{% multicol %}}
+{{% col %}}
+## Dos
+* pick tools based on the language/ecosystem *favoring those most used* in the development community
+    * Java / Kotlin $\Rightarrow$ Gradle
+    * JavaScript $\Rightarrow$ npm
+    * Python $\Rightarrow$ poetry
+* strive to have *a single short command* on a freshly cloned copy run the entire experiment
+or test and pack the tool
+* minimize the pre-requirements
+{{% /col %}}
+{{% col %}}
+## Don'ts
+* require manual steps
+* rely on dependencies not available in mainstream repositories
+* require an *IDE* to run the experiments
+{{% /col %}}
+{{% col %}}
+## Advanced
+* use the build tool to install the toolchains, if possible (see e.g., the Gradle Toolchains)
+* build a one-command, zero-setup demo, e.g.:
+    * `curl -sL https://bit.ly/dais-2023-loadshift | bash`
+{{% /col %}}
+{{% /multicol %}}
 
-## Fallback to shortcodes for resizing
-
-Autoresize specifying
-
-* `max-w` (percent of parent element width) and/or `max-h` (percent of viewport height) as max sizes , and
-* `width` and/or `height` as *exact* sizes (as percent of viewport size)
-
-{{< figure src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Scavolino_innevata.jpg" height="20">}}
-
----
-
-## Multi-column slide
-
-{{% multicol %}}{{% col %}}
-Column 1
-{{% /col %}}{{% col %}}
-Column 2
-{{% /col %}}{{% /multicol %}}
-
----
-
-## Tick and Cross
-
-{{% tick %}} This is something good {{% /tick %}}
-{{% cross %}} This is something good {{% /cross %}}
-
----
-
-## Chart.js
-
-{{< chart >}}
-{
-    type: 'bar',
-    data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-            label: 'Bar Chart',
-            data: [12, 19, 18, 16, 13, 14],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        maintainAspectRatio: false,
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        }
-    }
-}
-{{< /chart >}}
+Example: https://github.com/angelacorte/vmc-experiments
 
 ---
 
-## FontAwesome
+# Control randomness
 
-<i class="fa-solid fa-mug-hot"></i>
-<i class="fa-solid fa-lemon"></i>
-<i class="fa-solid fa-flask"></i>
-<i class="fa-solid fa-apple-whole"></i>
-<i class="fa-solid fa-bacon"></i>
-<i class="fa-solid fa-beer-mug-empty"></i>
-<i class="fa-solid fa-pepper-hot"></i>
+1. Obtain the same *exact* results when running the same experiment
+2. When building a tool or library, make sure that the same input produces the same output
 
----
-
-## Bootstrap 1
-
-<div class="card w-100" >
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/View_of_Cesena_from_the_Abbey.jpg/1920px-View_of_Cesena_from_the_Abbey.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-
----
-
-## Bootstrap 2
-
-<button type="button" class="btn btn-primary">Primary</button>
-<button type="button" class="btn btn-secondary">Secondary</button>
-<button type="button" class="btn btn-success">Success</button>
-<button type="button" class="btn btn-danger">Danger</button>
-<button type="button" class="btn btn-warning">Warning</button>
-<button type="button" class="btn btn-info">Info</button>
-<button type="button" class="btn btn-light">Light</button>
-<button type="button" class="btn btn-dark">Dark</button>
-
-<button type="button" class="btn btn-link">Link</button>
+{{% multicol %}}
+{{% col %}}
+## Dos
+* always *seed* your pseudo-random number generator
+* when modeling a random process, always expose an *API* to set the seed
+* when interacting with the real-world, use *mocks* or *stubs*
+(there are many great testing libraries that provide them)
+{{% /col %}}
+{{% col %}}
+## Don'ts
+* call `Math.random()`, `random.randint`, `rand()` or similar functions
+{{% /col %}}
+{{% col %}}
+## Advanced
+* In case of unavoidable randomness, e.g., due to *parallelism*,
+provide a *companion experiment* (smaller in size) that can be executed deterministically
+{{% /col %}}
+{{% /multicol %}}
 
 ---
 
-## Low res, plain markdown
+# Isolation and self-containment via containers
 
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Scavolino_innevata.jpg/260px-Scavolino_innevata.jpg)
+1. It runs on your machine? Ship your machine!
+2. Easy to share lightweight virtual machines (NOTE: they are not VMs)
+3. They apply to **experiments**, much less to **tools**
 
----
+{{% multicol %}}
+{{% col %}}
+## Dos
+* prepare one or more `Dockerfile`s packing your experiment and all its dependencies
+* prefer *containers over setup instructions* for clients
+* publish your images on a public registry (e.g., *dockerhub*)
+{{% /col %}}
+{{% col %}}
+## Don'ts
+* mount and write into user-local folders with the `root` user
+* until they allow access without a token, avoid GitHub's `ghcr.io` registry
+{{% /col %}}
+{{% col %}}
+## Advanced
+* Use orchestrators such as `docker-compose` to manage complex setups
+{{% /col %}}
+{{% /multicol %}}
 
-## Hi res, plain markdown
-
-![](https://upload.wikimedia.org/wikipedia/commons/6/6c/Scavolino_innevata.jpg)
-
----
-
-## Low res, default
-
-{{< figure src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Scavolino_innevata.jpg/260px-Scavolino_innevata.jpg" >}}
-
----
-
-## Hi res, default
-
-{{< figure src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Scavolino_innevata.jpg" >}}
-
----
-
-## Low res, enlarged horizontally
-
-{{< figure src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Scavolino_innevata.jpg/260px-Scavolino_innevata.jpg" width="100">}}
+Example: https://github.com/nicolasfara/experiments-2024-ACSOS-imageonomics-drones
 
 ---
 
-## Low res, enlarged vertically
+# Continuous integration and continuous delivery
 
-{{< figure src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Scavolino_innevata.jpg/260px-Scavolino_innevata.jpg" height="100">}}
+1. For each change, automatically run a verification process
+2. Easy to share lightweight virtual machines (NOTE: they are not VMs)
 
----
+{{% multicol %}}
+{{% col %}}
+## Dos
+* set up the *CI/CD pipeline* as soon as possible
+    * most code hosting platforms provide it for free within limits
+* rely on the *build process* that you set up before
+* *deliver* the artifacts automatically if the verification succeeds
+* produce a *reduced version* of the experiments that can serve *testing purposes* and can be used as *quick demo*
+{{% /col %}}
+{{% col %}}
+## Don'ts
+* run the *whole experiments* in the pipeline even if they take hours
+{{% /col %}}
+{{% col %}}
+## Advanced
+* automatically deal with updates and patches using a *automatic merging rules* for PRs
+* automatically release new versions (checkout [Semantic Release](https://github.com/semantic-release/semantic-release))
+{{% /col %}}
+{{% /multicol %}}
 
-## Hi res, reduced horizontally
-
-{{< figure src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Scavolino_innevata.jpg" width="50">}}
-
----
-
-## Hi res, reduced vertically
-
-{{< figure src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Scavolino_innevata.jpg" height="50">}}
-
----
-
-## Hi res, reducing maximum expansion horizontally
-
-{{< figure src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Scavolino_innevata.jpg" width="50">}}
-
----
-
-## Hi res, reducing maximum expansion vertically
-
-{{< figure src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Scavolino_innevata.jpg" height="50">}}
-
----
-
-{{< slide background-image="https://upload.wikimedia.org/wikipedia/commons/6/6c/Scavolino_innevata.jpg" >}}
-
-# Large images as background
-## (May affect printing)
+Example: https://github.com/nicolasfara/experiments-2024-acsos-multi-tier-field-based-applications
 
 ---
 
-{{< slide background-image="https://upload.wikimedia.org/wikipedia/commons/6/6c/Scavolino_innevata.jpg" state="blur-animation-light"  transition="fade-in fade-out" >}}
+# Pick a license
 
-# Also available with blur and custom transitions
-## (May affect printing)
+1. Unlicensed software is [proprietary](https://choosealicense.com/no-permission/)
+    * the copyright exsists even if you don't write it, unless you *explicitly renounce* to part of it
+2. Pick the right license for the job, depending on your goals
 
----
+{{% multicol %}}
+{{% col %}}
+## Dos
+* use a *standard license* (e.g., MIT, Apache, GPL, LGPL)
+* check what your license allows and what it does not
+{{% /col %}}
+{{% col %}}
+## Don'ts
+* concoct your own license
+    * exception: adding a *linking/classpath exception* to the GPL
+* use a *funny* license, such as Beerware or WTFPL
+{{% /col %}}
+{{% /multicol %}}
 
-# $$\LaTeX{}$$
-
-
-Inline equations like $E=mc^2$
-
-$$\frac{n!}{k!(n-k)!} = \binom{n}{k}$$
-
----
-
-# Code snippets
-
-
-```kotlin
-val x = pippo
-```
-
-```go
-package main
-
-import "fmt"
-
-func main() {
-    fmt.Println("Hello world!")
-}
-```
-
----
-
-# Tables
-
-Colons can be used to align columns.
-
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
-
-There must be at least 3 dashes separating each header cell.
-The outer pipes (|) are optional, and you don't need to make the
-raw Markdown line up prettily. You can also use inline Markdown.
+## Rules of thumb
+* if people to do whatever they want to, use *MIT* or *BSD*
+* if you want to track contributions or protect trademarks, use *Apache 2.0*
+* *do not use GNU LGPL* if you want companies to use your library
+    * forces the linking software to be partly reverse-engineerable
+    * a *GNU GPL with linking/classpath exception* is more permissive
+* if you wanto to be protective and force everyone using your stuff to release theirs,
+    use *GNU GPL*
+* if your software is networked, consider *GNU Affero* in place of *GNU GPL*
+* *do not use Creative Commons licenses for software*
+* for any detailed use, *ask your legal team*
 
 ---
 
-# Quotes
+# Archival copies and digital object identifiers
 
-> Multiple
-> lines
-> of
-> a
-> single
-> quote
-> get
-> joined
+1. Don't let your software disappear
+2. Let other reference specific versions of your software through a DOI
 
-> Very long one liners of Markdown text automatically get broken into a multiline quotation, which is then rendered in the slides.
+{{% multicol %}}
+{{% col %}}
+## Dos
+* connect GitHub to an archival service, e.g., [Zenodo](https://zenodo.org)
+    * every GitHub release will be *automatically archived* and *assigned a DOI*
+* Use services such as [DOI2bib](https://doi2bib.org/) to get a BibTeX entry for your DOI
+    * *Clean it up* if you use bots, or they'll appear as coauthors
+{{% /col %}}
+{{% col %}}
+## Don'ts
+* upload software manually to archives
+{{% /col %}}
+{{% col %}}
+## Advanced
+* treat your documentation as you treat your software: *version it*, *review it*, *test it*
+* configure the *CI/CD pipeline* to automatically build and deploy the documentation
+{{% /col %}}
+{{% /multicol %}}
 
----
-
-# Fragments
-
-* {{< frag c="pluto" >}}
-* {{< frag c="pluto" >}}
-* {{< frag c="pluto" >}}
-
----
-
-# Graphs via Gravizo
-
-{{< gravizo "Example Gravizo graph" >}}
-  digraph G {
-    aize ="4,4";
-    main [shape=box];
-    main -> parse [weight=8];
-    parse -> execute;
-    main -> init [style=dotted];
-    main -> cleanup;
-    execute -> { make_string; printf}
-    init -> make_string;
-    edge [color=red];
-    main -> printf [style=bold,label="100 times"];
-    make_string [label="make a string"];
-    node [shape=box,style=filled,color=".7 .3 1.0"];
-    execute -> compare;
-  }
-{{< /gravizo >}}
+Example TBD: repo $\Rightarrow$ zenodo
 
 ---
 
-# Graphs via mermaid.js
+# Document your work
 
-```mermaid
-classDiagram
-  Class01 <|-- AveryLongClass : Coosssl
-  Class03 *-- Class04
-  Class05 o-- Class06
-  Class07 .. Class08
-  Class09 --> C2 : Where am i?
-  Class09 --* C3
-  Class09 --|> Class07
-  Class07 : equals()
-  Class07 : Object[] elementData
-  Class01 : size()
-  Class01 : int chimp
-  Class01 : int gorillasaaaaaaaaaaaaaaaaaaaaaa
-  Class08 <--> C2: Cool label
-```
+1. Help other people understand your work
+2. Help other people build on your work
 
----
+{{% multicol %}}
+{{% col %}}
+## Dos
+* pick a framework to better organize your documentation
+    * I recommend the [DIVIO documentation system](https://docs.divio.com/documentation-system/)
+* leverage [GitHub Pages](https://pages.github.com/) or similar services to host your documentation
+    * with every organization, you get a free static website `https://<org>.github.io/`
+    * you get one with every repository, too, at `https://<username>.github.io/<repository>`
+* use a *static site generator* (e.g., [Hugo](https://gohugo.io/), [Jekyll](https://jekyllrb.com/))
+to convert Markdown documentation into a website
+{{% /col %}}
+{{% col %}}
+## Don'ts
+* use HTML/js/CSS directly, it's hard to *maintain*
+{{% /col %}}
+{{% col %}}
+## Advanced
+* treat your documentation as you treat your software: *version it*, *review it*, *test it*
+* configure the *CI/CD pipeline* to automatically build and deploy the documentation
+{{% /col %}}
+{{% /multicol %}}
 
-
-# Graphs via mermaid.js with options
-
-```mermaid
-%%{init: {'theme':'default', 'themeVariables': { 'fontSize': '.34em', 'fontFamily': 'verdana' }}}%%
-classDiagram
-  Class01 <|-- AveryLongClass : Coosssl
-  Class03 *-- Class04
-  Class05 o-- Class06
-  Class07 .. Class08
-  Class09 --> C2 : Where am i?
-  Class09 --* C3
-  Class09 --|> Class07
-  Class07 : equals()
-  Class07 : Object[] elementData
-  Class01 : size()
-  Class01 : int chimp
-  Class01 : int gorillasaaaaaaaaaaaaaaaaaaaaaa
-  Class08 <--> C2: Cool label
-```
-
-
----
-# Graphs via mermaid.js 2
-
-```mermaid
-graph TD
-  SL([fa:fa-user second level]) --> L[solution]
-  L -- solution email --> db[(mysql)]
-  db --> X[automatic]
-  X --> CM([fa:fa-users first level])
-  db -- Email --> c([customer support]);
-```
+Example: https://alchemistsimulator.github.io/
 
 ---
 
-# Graphs via mermaid.js 3
+# Conclusion
 
-```mermaid
-gitGraph
-  commit id: "Initialize project"
-  commit id: "Make some changes"
-  branch develop
-  checkout develop
-  commit
-  commit
-  checkout main
-  merge develop
-  commit
-  commit
-```
+* {{% fragment %}} Make sure *others can reproduce* your experiments {{% /fragment %}}
+* {{% fragment %}} Lower the *maintenance burden* of your tools by using *DevOps techniques* {{% /fragment %}}
+    * {{% fragment %}} Version Control {{% /fragment %}}
+    * {{% fragment %}} Build Automation {{% /fragment %}}
+    * {{% fragment %}} Containerization {{% /fragment %}}
+    * {{% fragment %}} CI/CD {{% /fragment %}}
+* {{% fragment %}} Upload your artifacts *where others are likely to search* for them {{% /fragment %}}
+* {{% fragment %}} Make your experiment *future-proof* by archiving os software-preservation platforms {{% /fragment %}}
+* {{% fragment %}} Don't forget to *apply a license* {{% /fragment %}}
 
 ---
 
-# Keystrokes
+### And of course, **don't try to tame and ride a hippo**
 
-<kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Del</kbd>
-
----
-
-# Import shared slides
-
-<!-- write-here "shared-slides/devops/devops-intro.md" -->
-<!-- end-write -->
+![death](death.svg)
