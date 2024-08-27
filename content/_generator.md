@@ -371,7 +371,7 @@ Example: https://github.com/nicolasfara/experiments-2024-acsos-multi-tier-field-
 {{% /col %}}
 {{% /multicol %}}
 
-Example TBD: repo $\Rightarrow$ zenodo
+Example: https://github.com/anitvam/dsrt-2024-jakta-alchemist $\Rightarrow$ [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.11581945.svg)](https://doi.org/10.5281/zenodo.11581945)
 
 ---
 
