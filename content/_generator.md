@@ -87,6 +87,8 @@ Would it be more convincing if multiple independent people applied the same proc
 
 ![experiment](experiment.webp)
 
+<small>AI didn't like the letter R</small>
+
 ---
 
 ![image](https://user-images.githubusercontent.com/1991673/236500955-b65de211-3b51-4adf-b0e5-6f248771e479.png)
@@ -105,7 +107,14 @@ Would it be more convincing if multiple independent people applied the same proc
 
 ---
 
-## People working in computer science are lucky!
+![](genpapers.png)
+{{% fragment %}}![](genpapers-stats.png){{% /fragment %}}
+{{% fragment %}}![](genpapers-risk.png){{% /fragment %}}
+
+
+---
+
+## The good news: people working in computer science are lucky!
 #### (on average)
 
 * It's the only engineering discipline producing *mass-less* artifacts
